@@ -165,7 +165,7 @@ public struct SwipeTammie<Content: View>: View {
 struct SwipebleView_Previews: PreviewProvider {
      static var previews: some View {
         
-        var items = ["View 1", "View 2", "View 3"]
+        let items = ["View 1", "View 2", "View 3"]
       
         VStack {
             ScrollView {
