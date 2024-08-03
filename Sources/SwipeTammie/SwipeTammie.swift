@@ -177,10 +177,13 @@ struct SwipebleView_Previews: PreviewProvider {
                             .background(Color.blue.opacity(0.5))
                             .cornerRadius(10)
                     },
-                    leftActions: [],
-                                rightActions: [
-                                    Action(title: "Edit", icon: "pencil", bgColor: .orange, fgColor: .white, cornerRadius: 10, action: {}),
-                                    Action(title: "Delete", icon: "trash", bgColor: .red, fgColor: .white, cornerRadius: 10, action: { items.remove(at: index)})])
+                    leftActions: [
+                        Action(title: "Share", icon: "square.and.arrow.up", bgColor: .blue, fgColor: .white, cornerRadius: 10, action: { })
+                    ],
+                    rightActions: [
+                         Action(title: "Edit", icon: "pencil", bgColor: .orange, fgColor: .white, cornerRadius: 10, action: {}),
+                         Action(title: "Delete", icon: "trash", bgColor: .red, fgColor: .white, cornerRadius: 10, action: {})
+                    ])
                 }
             }
             Spacer()
