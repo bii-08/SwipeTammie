@@ -1,6 +1,6 @@
 # SwipeTammie
 
-![Overview](overview.png)
+![Overview](overview-dark.png)
 
 **SwipeTammie** is a SwiftUI package that enables you to add customizable swipe actions to any view. This package provides a simple and flexible way to implement swipeable actions on both left and right swipe directions.
 
