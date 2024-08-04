@@ -1,4 +1,4 @@
-# SwipeTammie
+![Cover](cover.png)
 
 ![Overview](overview-dark.png)
 
