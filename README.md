@@ -10,7 +10,7 @@
 - Support for multiple actions
 - Easy integration with SwiftUI
 - Configurable appearance and behavior
-- Lightweight, no dependencies
+- Lightweight and dependency-free
 
 ## ⛓️ Installation
 ### Swift Package Manager
@@ -57,9 +57,6 @@ struct ContentView: View {
 ```
 ### Customization
 You can customize the appearance and behavior of the swipe actions by modifying the `Action` struct parameters and the `SwipeTammie` initialization parameters.
-
-## Credit 
-SwipeTammie is created by [Tam Luu](https://github.com/bii-08).
 
 ## Contributing
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or create a pull request.
