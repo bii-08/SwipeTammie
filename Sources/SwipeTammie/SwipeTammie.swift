@@ -27,6 +27,7 @@ import SwiftUI
 /// ], frameHeight: 100)
 /// ```
 public struct SwipeTammie<Content: View>: View {
+    @GestureState var isDragging = false
     @State var dragOffset: CGFloat = 0
     /// An optional array of `Action` representing the actions available when swiping to the right.
     public var leftActions: [Action]?
@@ -71,16 +72,18 @@ public struct SwipeTammie<Content: View>: View {
             content
                 .offset(x: dragOffset)
                 .gesture(DragGesture()
-                    .onChanged({ value in
-                        withAnimation {
+                    .updating($isDragging) { value, state, _ in
+                        state = true
+                        DispatchQueue.main.async {
                             onChange(value: value)
                         }
-                    })
-                    .onEnded({ value in
-                            withAnimation {
-                                onEnd(value: value)
-                            }
-                        }))
+                    }
+                    .onEnded { value in
+                        withAnimation(.spring()) {
+                            onEnd(value: value)
+                        }
+                    }
+                )
         }
         .onDisappear {
             dragOffset = 0
@@ -96,9 +99,9 @@ public struct SwipeTammie<Content: View>: View {
     /// - Parameter value: The current value of the drag gesture.
     private func onChange(value: DragGesture.Value) {
         // Update dragOffset based on the gesture's translation
-        if value.translation.width < 0 {
+        if value.translation.width < 0 && isDragging {
             dragOffset = value.translation.width
-        } else if value.translation.width > 0 {
+        } else if value.translation.width > 0 && isDragging {
             dragOffset = value.translation.width
         }
     }
